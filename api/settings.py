@@ -11,9 +11,11 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
-from decouple import config
+# from decouple import config
 
-API_KEY = config('API_KEY')
+API_KEY = '959f7284'
+# API_KEY = config('API_KEY')
+# SECRET_KEY = config('SECRET_KEY')
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -82,12 +84,25 @@ WSGI_APPLICATION = "api.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
+# DATABASES = {
+#     "default": {
+#         "ENGINE": "django.db.backends.sqlite3",
+#         "NAME": BASE_DIR / "db.sqlite3",
+#     }
+# }
+
+
 DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'lemon1964$default',  # Имя вашей MySQL базы данных на PythonAnywhere
+        'USER': 'lemon1964',          # Ваше имя пользователя MySQL на PythonAnywhere
+        'PASSWORD': 'Q195375qQ195375q',  # Пароль вашего пользователя MySQL
+        'HOST': 'lemon1964.mysql.pythonanywhere-services.com',  # Хост вашей MySQL на PythonAnywhere
+        'PORT': '3306',               # Порт MySQL
     }
 }
+
 
 
 # Password validation

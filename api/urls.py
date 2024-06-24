@@ -33,3 +33,6 @@ urlpatterns = [
 
 # python manage.py makemigrations core
 # python manage.py migrate core
+
+# pip install -U -r requirements.txt    в проект
+# pip freeze > requirements.txt         из проекта
