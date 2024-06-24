@@ -17,6 +17,7 @@ API_KEY = '959f7284'
 # API_KEY = config('API_KEY')
 # SECRET_KEY = config('SECRET_KEY')
 
+x = 1
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
