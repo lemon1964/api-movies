@@ -1,6 +1,6 @@
 asgiref==3.4.1
 certifi==2024.6.2
-charset-normalizer==3.0.1
+# charset-normalizer==3.0.1
 dj-database-url==2.2.0
 Django==3.2.25
 django-cors-headers==3.9.0
@@ -10,8 +10,8 @@ idna==3.7
 mysqlclient==2.1.1
 packaging==21.3
 python-decouple==3.3
-requests==2.32.3
+requests==2.27.1
 sqlparse==0.5.0
 typing_extensions==4.0.0
-urllib3==2.2.2
+urllib3==1.26.5
 whitenoise==5.1.0
