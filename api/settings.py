@@ -31,7 +31,7 @@ SECRET_KEY = "django-insecure-v2_jcky+t6q06sj354v&yizw0s@4f_&4r&n6a+rz!%&!477mm@
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['lemon1964.pythonanywhere.com']
 
 
 # Application definition
@@ -150,3 +150,5 @@ CORS_ALLOWED_ORIGINS = [
 ]
 
 
+
+STATIC_ROOT = Path(BASE_DIR / 'static')
