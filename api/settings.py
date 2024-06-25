@@ -47,8 +47,6 @@ else:
     }
 
 
-# DEBUG = True
-DEBUG = config('DEBUG', default=True, cast=bool)
 
 # ALLOWED_HOSTS = []
 # ALLOWED_HOSTS = config('ALLOWED_HOSTS', default='').split(',')
@@ -172,3 +170,5 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 
 
+
+STATIC_ROOT = Path(BASE_DIR / 'static')
