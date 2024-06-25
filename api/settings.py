@@ -11,31 +11,49 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
-# from decouple import config
+from decouple import config, Csv
 
-API_KEY = '959f7284'
-# API_KEY = config('API_KEY')
-# SECRET_KEY = config('SECRET_KEY')
+# SECRET_KEY = "django-insecure-v2_jcky+t6q06sj354v&yizw0s@4f_&4r&n6a+rz!%&!477mm@"
+SECRET_KEY = config('SECRET_KEY')
 
-x = 1
+# API_KEY = '959f7284'
+API_KEY = config('API_KEY')
 
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
+# Стандартные настройки
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+# Определение окружения (local или production)
+DJANGO_ENV = config('DJANGO_ENV')
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
+if DJANGO_ENV == 'local':
+    # Локальная база данных (SQLite)
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+        }
+    }
+else:
+    # База данных для продакшена (MySQL)
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.mysql',
+            'NAME': config('DB_NAME'),
+            'USER': config('DB_USER'),
+            'PASSWORD': config('DB_PASSWORD'),
+            'HOST': config('DB_HOST'),
+            'PORT': config('DB_PORT', cast=int),
+        }
+    }
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "django-insecure-v2_jcky+t6q06sj354v&yizw0s@4f_&4r&n6a+rz!%&!477mm@"
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+# DEBUG = True
+DEBUG = config('DEBUG', default=True, cast=bool)
 
-ALLOWED_HOSTS = []
+# ALLOWED_HOSTS = []
+# ALLOWED_HOSTS = config('ALLOWED_HOSTS', default='').split(',')
+ALLOWED_HOSTS = config('ALLOWED_HOSTS', default='', cast=Csv())
 
-
-# Application definition
 
 INSTALLED_APPS = [
     "django.contrib.admin",
@@ -93,16 +111,16 @@ WSGI_APPLICATION = "api.wsgi.application"
 # }
 
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'lemon1964$default',  # Имя вашей MySQL базы данных на PythonAnywhere
-        'USER': 'lemon1964',          # Ваше имя пользователя MySQL на PythonAnywhere
-        'PASSWORD': 'Q195375qQ195375q',  # Пароль вашего пользователя MySQL
-        'HOST': 'lemon1964.mysql.pythonanywhere-services.com',  # Хост вашей MySQL на PythonAnywhere
-        'PORT': '3306',               # Порт MySQL
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'lemon1964$default',  # Имя вашей MySQL базы данных на PythonAnywhere
+#         'USER': 'lemon1964',          # Ваше имя пользователя MySQL на PythonAnywhere
+#         'PASSWORD': 'Q195375qQ195375q',  # Пароль вашего пользователя MySQL
+#         'HOST': 'lemon1964.mysql.pythonanywhere-services.com',  # Хост вашей MySQL на PythonAnywhere
+#         'PORT': '3306',               # Порт MySQL
+#     }
+# }
 
 
 
