@@ -13,13 +13,10 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 from pathlib import Path
 from decouple import config, Csv
 
-# SECRET_KEY = "django-insecure-v2_jcky+t6q06sj354v&yizw0s@4f_&4r&n6a+rz!%&!477mm@"
 SECRET_KEY = config('SECRET_KEY')
 
-# API_KEY = '959f7284'
 API_KEY = config('API_KEY')
 
-# Стандартные настройки
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Определение окружения (local или production)
@@ -48,8 +45,6 @@ else:
 
 
 
-# ALLOWED_HOSTS = []
-# ALLOWED_HOSTS = config('ALLOWED_HOSTS', default='').split(',')
 ALLOWED_HOSTS = config('ALLOWED_HOSTS', default='', cast=Csv())
 CORS_ALLOWED_ORIGINS = config('CORS_ALLOWED_ORIGINS', default='', cast=Csv())
 
@@ -99,30 +94,6 @@ TEMPLATES = [
 WSGI_APPLICATION = "api.wsgi.application"
 
 
-# Database
-# https://docs.djangoproject.com/en/4.2/ref/settings/#databases
-
-# DATABASES = {
-#     "default": {
-#         "ENGINE": "django.db.backends.sqlite3",
-#         "NAME": BASE_DIR / "db.sqlite3",
-#     }
-# }
-
-
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.mysql',
-#         'NAME': 'lemon1964$default',  # Имя вашей MySQL базы данных на PythonAnywhere
-#         'USER': 'lemon1964',          # Ваше имя пользователя MySQL на PythonAnywhere
-#         'PASSWORD': 'Q195375qQ195375q',  # Пароль вашего пользователя MySQL
-#         'HOST': 'lemon1964.mysql.pythonanywhere-services.com',  # Хост вашей MySQL на PythonAnywhere
-#         'PORT': '3306',               # Порт MySQL
-#     }
-# }
-
-
-
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
 
@@ -139,10 +110,8 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 
-# LANGUAGE_CODE = "en-us"
 LANGUAGE_CODE = 'ru-ru'
 
-# TIME_ZONE = "UTC"
 TIME_ZONE = 'Europe/Moscow'
 
 USE_I18N = True
@@ -154,6 +123,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = "static/"
+STATIC_ROOT = Path(BASE_DIR / 'static')
 
 MEDIA_URL = '/media/' 
 MEDIA_ROOT = BASE_DIR / 'media'
@@ -162,13 +132,3 @@ MEDIA_ROOT = BASE_DIR / 'media'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
-
-# CORS_ALLOWED_ORIGINS = [
-#     "https://lemon1964.github.io",
-#     "https://lemon1964.pythonanywhere.com",
-# ]
-
-
-
-
-STATIC_ROOT = Path(BASE_DIR / 'static')
