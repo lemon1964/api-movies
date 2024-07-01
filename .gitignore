@@ -5,6 +5,6 @@
 db.sqlite3
 
 # Ignore compiled files
-__pycache__/
+api/__pycache__/
 
 data.json
