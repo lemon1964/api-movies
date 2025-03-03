@@ -36,3 +36,5 @@ urlpatterns = [
 
 # pip install -U -r requirements.txt    в проект
 # pip freeze > requirements.txt         из проекта
+
+# git remote -v
