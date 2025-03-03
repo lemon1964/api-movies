@@ -4,7 +4,7 @@
 # Ignore SQLite database
 db.sqlite3
 
-# Ignore compiled files
-api/__pycache__/
+# Ignore all __pycache__ directories
+**/__pycache__/
 
 data.json
