@@ -5,7 +5,6 @@ dj-database-url==2.2.0
 Django==3.2.25
 django-cors-headers==3.9.0
 djangorestframework==3.15.1
-gunicorn==21.2.0
 idna==3.7
 mysqlclient==2.1.1
 packaging==21.3
@@ -16,4 +15,47 @@ requests==2.27.1
 sqlparse==0.4.4
 typing_extensions==4.0.0
 urllib3==1.26.5
-whitenoise==5.1.0
+
+# Дополняем зависимостями из backend/requirements.txt с пониженными версиями:
+
+# Для работы с rest_auth и аутентификацией
+dj-rest-auth==2.2.0  # Совместимая версия для Django 3.2
+django-allauth==0.63.6  # Совместимая версия для Django 3.2
+
+# Для работы с JWT
+djangorestframework-simplejwt==5.3.1  # Совместимая версия
+
+# Для Stripe
+stripe==4.0.0  # Совместимая версия
+
+# Для Yookassa
+yookassa==3.5.0  # Совместимая версия
+
+# Для работы с изображениями
+pillow==8.0.0  # Совместимая версия
+
+# Для работы с env переменными
+python-dotenv==1.0.1
+
+# Для работы с транслитерацией
+transliterate==1.10.2
+
+# Для работы с SIB API
+sib-api-v3-sdk==7.6.0
+
+# Для работы с JWT токенами
+PyJWT==2.9.0
+
+# Дополнительные зависимости
+cffi==1.14.6
+cryptography==3.4.8
+defusedxml==0.6.0
+pycparser==2.20
+python-dateutil==2.8.2
+python3-openid==3.1.0
+six==1.15.0
+pyngrok==5.1.0
+
+# Пониженные подкапотные версии для совместимости
+weasyprint==60.0
+django-simple-captcha==0.5.1
