@@ -57,5 +57,5 @@ six==1.15.0
 pyngrok==5.1.0
 
 # Пониженные подкапотные версии для совместимости
-weasyprint==60.0
+weasyprint==52
 django-simple-captcha==0.5.1
